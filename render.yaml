@@ -1,0 +1,41 @@
+# render.yaml — deploy all Karada services to Render.com
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  # ── Go Incident API ─────────────────────────────────────────────────────────
+  - type: web
+    name: karada-incident-api
+    runtime: docker
+    dockerfilePath: ./backend/incident-service/Dockerfile
+    dockerContext: ./backend/incident-service
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8090
+    healthCheckPath: /health
+    # After deploy, set BASE_URL in Flutter to this service's URL
+
+  # ── Python Hotline Service ──────────────────────────────────────────────────
+  - type: web
+    name: karada-hotline
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    rootDir: .
+    plan: free
+    envVars:
+      - key: API_GATEWAY_URL
+        fromService:
+          name: karada-incident-api
+          type: web
+          property: host
+          envVarKey: RENDER_EXTERNAL_URL
+
+  # ── Python Notification Worker ──────────────────────────────────────────────
+  - type: worker
+    name: karada-notifier
+    runtime: python
+    buildCommand: pip install -r services/notification-service/requirements.txt
+    startCommand: python services/notification-service/worker.py
+    rootDir: .
+    plan: free

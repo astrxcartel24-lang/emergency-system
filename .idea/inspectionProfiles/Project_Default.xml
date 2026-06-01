@@ -1,0 +1,29 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="cloudinary" />
+          <option value="asgiref" />
+          <option value="certifi" />
+          <option value="charset-normalizer" />
+          <option value="dj-database-url" />
+          <option value="Django" />
+          <option value="django-cloudinary-storage" />
+          <option value="gunicorn" />
+          <option value="idna" />
+          <option value="packaging" />
+          <option value="psycopg2-binary" />
+          <option value="PyMySQL" />
+          <option value="requests" />
+          <option value="six" />
+          <option value="sqlparse" />
+          <option value="tzdata" />
+          <option value="urllib3" />
+          <option value="whitenoise" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

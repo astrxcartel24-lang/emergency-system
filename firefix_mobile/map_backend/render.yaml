@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: karada-map-backend
+    runtime: node
+    plan: free
+    buildCommand: cd firefix_mobile/map_backend && npm install
+    startCommand: cd firefix_mobile/map_backend && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: ORS_API_KEY
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
