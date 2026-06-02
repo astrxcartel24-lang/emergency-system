@@ -10,8 +10,8 @@ class AppConstants {
     defaultValue: 'http://10.0.2.2:8090', // Android emulator → host localhost
   );
 
-  static const String incidentEndpoint = '/api/incidents';
-  static const String nearbyEndpoint = '/api/incidents/nearby';
+  static const String incidentEndpoint = '/api/v1/incidents';
+  static const String nearbyEndpoint = '/api/v1/incidents/nearby';
   static const String healthEndpoint = '/health';
 
   /// WebSocket endpoint for real-time incident updates
