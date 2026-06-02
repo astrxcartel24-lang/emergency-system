@@ -43348,7 +43348,7 @@ AV(a){return this.aru(a)},
 aru(a){var s=0,r=A.L(t.N),q,p=this,o,n
 var $async$AV=A.M(function(b,c){if(b===1)return A.I(c,r)
 while(true)switch(s){case 0:s=3
-return A.F(p.a.X2("/api/incidents",a.eG(),t.z),$async$AV)
+return A.F(p.a.X2("/api/v1/incidents",a.eG(),t.z),$async$AV)
 case 3:o=c
 n=o.c
 if(n===200||n===201){n=A.bZ(J.bc(t.a.a(o.a),"id"))
